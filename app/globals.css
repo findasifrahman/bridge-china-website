@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 24% 97%;
+    --foreground: 220 32% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 32% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 32% 14%;
+    --primary: 356 75% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 26% 94%;
+    --secondary-foreground: 220 32% 14%;
+    --muted: 32 16% 93%;
+    --muted-foreground: 220 16% 42%;
+    --accent: 33 92% 56%;
+    --accent-foreground: 220 32% 14%;
+    --border: 214 22% 87%;
+    --input: 214 22% 87%;
+    --ring: 221 76% 49%;
+
+    --navy-950: 220 44% 14%;
+    --navy-900: 220 33% 20%;
+    --electric-500: 221 76% 49%;
+    --electric-400: 191 63% 45%;
+    --amber-500: 33 92% 56%;
+    --sand-50: 36 24% 97%;
+    --sand-100: 36 20% 93%;
+
+    --font-sans: "Manrope";
+    --font-display: "Cormorant Garamond";
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(48, 92, 222, 0.05), transparent 26%),
+      linear-gradient(to bottom, rgba(253, 252, 250, 0.98), rgba(248, 245, 241, 0.98));
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.2);
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-space-sm {
+    @apply py-12 sm:py-14 lg:py-16;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-[hsl(var(--electric-500))];
+  }
+
+  .display-xl {
+    @apply font-display text-[2.85rem] leading-[1.02] tracking-tight text-[hsl(var(--navy-950))] sm:text-[3.55rem] lg:text-[4.35rem];
+  }
+
+  .display-lg {
+    @apply font-display text-[2.35rem] leading-[1.04] tracking-tight text-[hsl(var(--navy-950))] sm:text-[3rem] lg:text-[3.7rem];
+  }
+
+  .heading-lg {
+    @apply text-3xl font-semibold tracking-tight text-[hsl(var(--navy-950))] sm:text-4xl;
+  }
+
+  .body-lg {
+    @apply text-base leading-8 text-muted-foreground sm:text-lg;
+  }
+
+  .surface-card {
+    @apply rounded-[1.25rem] border bg-white shadow-[0_12px_28px_rgba(18,34,67,0.06)];
+    border-color: hsl(var(--border) / 0.9);
+  }
+
+  .panel-dark {
+    @apply rounded-[1.25rem] border bg-[hsl(var(--navy-950))] text-white shadow-[0_18px_40px_rgba(16,30,58,0.14)];
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .consulting-card {
+    @apply surface-card h-full overflow-hidden transition-all duration-300;
+  }
+
+  .consulting-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(18, 34, 67, 0.08);
+  }
+
+  .technical-grid {
+    background-image:
+      linear-gradient(rgba(46, 74, 125, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46, 74, 125, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero-frame {
+    background:
+      linear-gradient(145deg, rgba(19, 35, 66, 0.98), rgba(28, 62, 116, 0.95)),
+      radial-gradient(circle at top right, rgba(28, 187, 205, 0.12), transparent 28%);
+    box-shadow:
+      0 18px 44px rgba(18, 34, 67, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .section-stack {
+    @apply space-y-8 sm:space-y-10;
+  }
+
+  .section-hero-card {
+    @apply surface-card relative overflow-hidden p-6 sm:p-8;
+    box-shadow:
+      0 12px 30px rgba(18, 34, 67, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .section-shell {
+    @apply section-hero-card p-6 sm:p-8 lg:p-10;
+  }
+
+  .section-header {
+    @apply mx-auto max-w-3xl text-center;
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-[hsl(var(--electric-500))];
+  }
+
+  .section-title {
+    @apply mt-4 text-4xl font-semibold tracking-tight text-[hsl(var(--navy-950))] sm:text-5xl;
+  }
+
+  .section-copy {
+    @apply mx-auto mt-4 max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
