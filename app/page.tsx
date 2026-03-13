@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Check,
@@ -119,7 +120,21 @@ export default function HomePage() {
               transition={{ duration: 0.55, ease: "easeOut" }}
               className="space-y-8"
             >
-              <LogoLockup href="" className="pointer-events-none" />
+              <div className="flex items-center gap-3">
+                <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-border/80 bg-white shadow-[0_8px_18px_rgba(18,34,67,0.08)]">
+                  <Image
+                    src="/brand-mark.svg"
+                    alt="BridgeChina logo"
+                    fill
+                    className="object-cover"
+                    sizes="44px"
+                    priority
+                  />
+                </div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[hsl(var(--electric-500))]">
+                  BridgeChina
+                </p>
+              </div>
 
               <div className="space-y-5">
                 <p className="eyebrow">China-based technical sourcing partner</p>
@@ -273,7 +288,7 @@ export default function HomePage() {
                         ].map((item) => (
                           <div
                             key={item}
-                            className="rounded-xl border border-border/70 bg-[hsl(var(--sand-50))] px-3 py-3 text-sm font-medium text-[hsl(var(--navy-950))]/86"
+                            className="flex min-h-[5rem] items-center rounded-xl border border-border/70 bg-[hsl(var(--sand-50))] px-3 py-3 text-sm font-medium leading-6 text-[hsl(var(--navy-950))]/86"
                           >
                             {item}
                           </div>
@@ -293,11 +308,27 @@ export default function HomePage() {
                   key={step}
                   className="flex items-start gap-4 rounded-2xl border border-border/70 bg-[hsl(var(--sand-50))] px-4 py-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--electric-500))]/10 text-sm font-semibold text-[hsl(var(--electric-500))]">
+                  <div
+                    className={[
+                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold",
+                      helperStepColors[index]
+                    ].join(" ")}
+                  >
                     {index + 1}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[hsl(var(--navy-950))]">
+                    <p
+                      className={[
+                        "text-sm font-semibold",
+                        index === 0
+                          ? "text-[hsl(var(--electric-500))]"
+                          : index === 1
+                            ? "text-[hsl(var(--electric-400))]"
+                            : index === 2
+                              ? "text-[hsl(var(--amber-500))]"
+                              : "text-[hsl(var(--primary))]"
+                      ].join(" ")}
+                    >
                       {step}
                     </p>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -338,7 +369,7 @@ export default function HomePage() {
         <div className="container-shell section-shell section-stack">
           <SectionLead
             eyebrow="Why sourcing is hard"
-            title="A low quote does not remove sourcing risk. It often hides where the real cost will appear later."
+            title="A low quote does not remove sourcing risk. It often hides where the real cost appears later."
             description="BridgeChina is built for projects where supplier selection, specification control, and quality follow-up matter as much as price."
           />
 
@@ -348,8 +379,11 @@ export default function HomePage() {
                 Risk infographic
               </p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[hsl(var(--navy-950))]">
-                Most sourcing failures come from gaps between quote, factory,
-                production, and shipment.
+                Most sourcing failures come from gaps between{" "}
+                <span className="text-[hsl(var(--electric-500))]">quote</span>,{" "}
+                <span className="text-[hsl(var(--electric-400))]">factory fit</span>,{" "}
+                <span className="text-[hsl(var(--amber-500))]">production control</span>, and{" "}
+                <span className="text-[hsl(var(--primary))]">shipment readiness</span>.
               </h3>
 
               <div className="mt-6 grid gap-4">
@@ -425,7 +459,7 @@ export default function HomePage() {
                   transition={{ duration: 0.4, delay: index * 0.04 }}
                   className="h-full"
                 >
-                  <Card className="h-full">
+                  <Card className="h-full border-[rgba(44,91,214,0.14)] bg-[linear-gradient(180deg,rgba(44,91,214,0.04),rgba(255,255,255,1))]">
                     <CardContent className="flex h-full flex-col p-6">
                       <div className="relative aspect-[16/9] overflow-hidden rounded-[1.25rem] border border-border/70 bg-[linear-gradient(135deg,rgba(22,42,86,0.98),rgba(44,91,214,0.92)_55%,rgba(25,183,195,0.82))] p-5 text-white">
                         <div className="absolute inset-0 technical-grid opacity-25" />
@@ -736,7 +770,7 @@ export default function HomePage() {
 
             <div className="grid gap-4">
               {bridgeChinaAdvantages.map((item) => (
-                <Card key={item.title}>
+                <Card className="border-[rgba(19,178,168,0.16)] bg-[linear-gradient(180deg,rgba(19,178,168,0.05),rgba(255,255,255,1))]" key={item.title}>
                   <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p className="text-xl font-semibold tracking-tight text-[hsl(var(--navy-950))]">
