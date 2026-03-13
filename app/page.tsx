@@ -281,10 +281,10 @@ export default function HomePage() {
                         {[
                           "Energy systems",
                           "Industrial lines",
-                          "Lab equipment",
+                          "Lab Design",
                           "Servers",
                           "Robotics",
-                          "OEM electronics"
+                          "Electronics"
                         ].map((item) => (
                           <div
                             key={item}
